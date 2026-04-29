@@ -30,4 +30,38 @@
  */
 export function calculateShipping(weight, country, orderTotal) {
   // Your code here
+  if (weight <= 0 || orderTotal < 0) {
+    return -1;
+  }
+
+  // Domestic Shipping
+  if (country === "US") {
+    // Free shipping over $50
+    if (orderTotal > 50) {
+      return 0;
+    }
+    // Weight-based shipping
+    if (weight <= 1) {
+      return 5;
+    } else if (weight <= 5) {
+      return 10;
+    } else {
+      return 15;
+    }
+  } 
+  // International Shipping
+  else {
+    // Free shipping over $100
+    if (orderTotal > 100) {
+      return 0;
+    }
+    // Weight-based shipping
+    if (weight <= 1) {
+      return 15;
+    } else if (weight <= 5) {
+      return 25;
+    } else {
+      return 40;
+    }
+  }
 }

@@ -30,5 +30,68 @@
  * @returns {{ tipPercentage: number, tipAmount: number, totalAmount: number } | null}
  */
 export function calculateTip(billAmount, serviceRating) {
-  // Your code here
+
+  if(serviceRating <= 0 || serviceRating > 5 || !Number.isInteger(serviceRating)) return null;
+  if(billAmount <= 0) return null;
+
+  if(serviceRating === 1){
+    const tipPercentage = 5;
+    const tipAmount = (billAmount * tipPercentage) / 100;
+    const totalAmount = billAmount + tipAmount;
+    return {
+      tipPercentage: tipPercentage,
+      tipAmount: parseFloat(tipAmount.toFixed(2)),
+      totalAmount: parseFloat(totalAmount.toFixed(2)),
+    };
+  } 
+
+  else if(serviceRating === 2){
+    const tipPercentage = 10;
+    const tipAmount = (billAmount * tipPercentage) / 100;
+    const totalAmount = billAmount + tipAmount;
+    return {
+      tipPercentage: tipPercentage,
+      tipAmount: parseFloat(tipAmount.toFixed(2)),
+      totalAmount: parseFloat(totalAmount.toFixed(2)),
+    };
+  } 
+
+  else if(serviceRating === 3){
+    const tipPercentage = 15;
+    const tipAmount = (billAmount * tipPercentage) / 100;
+    const totalAmount = billAmount + tipAmount;
+    return {
+      tipPercentage: tipPercentage,
+      tipAmount: parseFloat(tipAmount.toFixed(2)),
+      totalAmount: parseFloat(totalAmount.toFixed(2)),
+    };
+  } 
+
+  else if(serviceRating === 4){
+    const tipPercentage = 20;
+    const tipAmount = (billAmount * tipPercentage) / 100;
+    const totalAmount = billAmount + tipAmount;
+    return {
+      tipPercentage: tipPercentage,
+      tipAmount: parseFloat(tipAmount.toFixed(2)),
+      totalAmount: parseFloat(totalAmount.toFixed(2)),
+    };
+  } 
+
+  else if(serviceRating === 5){
+    const tipPercentage = 25;
+    const tipAmount = (billAmount * tipPercentage) / 100;
+    const totalAmount = billAmount + tipAmount;
+    return {
+      tipPercentage: tipPercentage,
+      tipAmount: parseFloat(tipAmount.toFixed(2)),
+      totalAmount: parseFloat(totalAmount.toFixed(2)),
+    };
+  }   
+
+  else{
+    return null;
+  }
+  
+
 }

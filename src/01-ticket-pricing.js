@@ -22,6 +22,39 @@
  * @param {boolean} isWeekend - Whether it's a weekend
  * @returns {number} The ticket price, or -1 for invalid input
  */
+
+
 export function getTicketPrice(age, isWeekend) {
-  // Your code here
+
+    // Validate inputs
+    if (typeof age !== "number" || typeof isWeekend !== "boolean") {
+        return -1;
+    }
+
+    if (age < 0 || Number.isNaN(age)) {
+        return -1;
+    }
+
+    let totalCharge = 0;
+
+    // Base price by age
+    if (age <= 12) {
+        totalCharge = 8;
+    } 
+    else if (age <= 17) {
+        totalCharge = 12;
+    } 
+    else if (age <= 59) {
+        totalCharge = 15;
+    } 
+    else {
+        totalCharge = 10;
+    }
+
+    // Weekend surcharge
+    if (isWeekend) {
+        totalCharge += 3;
+    }
+
+    return totalCharge;
 }
